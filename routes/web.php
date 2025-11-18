@@ -1,16 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// E-Commerce Routes (akan dikembangkan)
-Route::get('/products', function () {
-    return 'Products Page - Coming Soon!';
-});
+// Product Routes
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/category/{category}', [ProductController::class, 'byCategory'])->name('products.by-category');
 
+// About page
 Route::get('/about', function () {
-    return 'Laravel E-Commerce Starter - Development in Progress';
-});
+    return view('about');
+})->name('about');
