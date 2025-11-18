@@ -32,6 +32,24 @@
                         @if($product->category)
                             <span class="badge bg-secondary">{{ $product->category->name }}</span>
                         @endif
+                        {{-- Dalam product card, tambahkan: --}}
+@auth
+    <form action="{{ route('cart.add', $product) }}" method="POST" class="mt-2">
+        @csrf
+        <div class="input-group input-group-sm">
+            <input type="number" name="quantity" value="1" min="1" max="{{ $product->stock }}" 
+                   class="form-control" style="max-width: 80px;">
+            <button type="submit" class="btn btn-primary" 
+                    {{ !$product->isInStock() ? 'disabled' : '' }}>
+                Add to Cart
+            </button>
+        </div>
+    </form>
+@else
+    <a href="{{ route('login') }}" class="btn btn-outline-primary btn-sm mt-2">
+        Login to Purchase
+    </a>
+@endauth
                     </div>
                 </div>
             </div>
