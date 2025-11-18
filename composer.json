@@ -10,7 +10,6 @@
     "laravel/ui": "^4.0"
 }
 
-taruh dimana 
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
