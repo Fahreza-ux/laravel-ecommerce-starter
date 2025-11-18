@@ -16,6 +16,37 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">🛍️ E-Commerce</a>
+        
+        <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/products">Products</a>
+            <a class="nav-link" href="/about">About</a>
+            
+            @auth
+                <a class="nav-link position-relative" href="{{ route('cart.index') }}">
+                    🛒 Cart
+                    @php
+                        $cartCount = \App\Models\CartItem::where('user_id', auth()->id())->count();
+                    @endphp
+                    @if($cartCount > 0)
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ $cartCount }}
+                        </span>
+                    @endif
+                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="nav-link btn btn-link">Logout</button>
+                </form>
+            @else
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            @endauth
+        </div>
+    </div>
+</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">🛍️ E-Commerce</a>
             <div class="navbar-nav">
