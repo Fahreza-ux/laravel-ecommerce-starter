@@ -42,6 +42,8 @@ A complete Laravel-based e-commerce starter kit for building modern online store
 - Composer
 - MySQL 5.7+
 
+  #PROSES BELUM SEMPURNA 
+
 ### Installation
 
 1. **Clone Repository**
@@ -49,4 +51,3 @@ A complete Laravel-based e-commerce starter kit for building modern online store
 git clone https://github.com/Fahreza-ux/laravel-ecommerce-starter.git
 cd laravel-ecommerce-starter
 
-#Proses-Belum Sempurna 
