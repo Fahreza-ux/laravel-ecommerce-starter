@@ -42,7 +42,7 @@ A complete Laravel-based e-commerce starter kit for building modern online store
 - Composer
 - MySQL 5.7+
 
-### Proses Belum Sempurna 
+### Proses Belum Sempurna - Lagi Update 2025
 
 ### Installation
 
